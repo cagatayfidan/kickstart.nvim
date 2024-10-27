@@ -91,8 +91,15 @@ vim.g.maplocalleader = ' '
 local path = 'C:\\Users\\' .. os.getenv 'USERNAME' .. '\\Desktop\\lighthouse_react'
 vim.cmd('command! React lcd ' .. path)
 -- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.api.nvim_create_user_command('Chrome', function(args)
+  local command = 'start chrome www.' .. args.args .. '.com'
+  os.execute(command)
+end, { nargs = 1 })
+vim.api.nvim_create_user_command('Mdn', function(args)
+  local command = 'start chrome developer.mozilla.org/search?q=' .. args.args .. ''
+  os.execute(command)
+end, { nargs = 1 })
 vim.g.have_nerd_font = true
-
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
