@@ -15,12 +15,11 @@ return {
 
     require('nvim-tree').setup {
       update_focused_file = {
-        enable = true,
+        enable = false,
         update_root = true,
       },
-      sync_root_with_cwd = true,
+      sync_root_with_cwd = false,
       respect_buf_cwd = true,
-      vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = false, silent = true }),
     }
   end,
 }
